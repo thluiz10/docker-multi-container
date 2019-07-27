@@ -29,12 +29,13 @@ after_success:
 #deploy:
 # provider: elasticbeanstalk
 # region:
-# app: docker-react
-# env: Docker-env
+# app: docker-multi-container
+# env: docker-multi-container-env
 # bucket_name:
 # bucket_path:
 # on:
 #   branch: master
-# access_key_id: $AWS_ACCESS_KEY
+# access_key_id:
+#   secure: $AWS_ACCESS_KEY
 # secret_access_key:
 #   secure: $AWS_SECRET_KEY

@@ -1,0 +1,40 @@
+{
+  "AWSEBDockerVersion": 2,
+  "containerDefinitions": [
+    {
+      "name": "client",
+      "image": "thluiz10/multi-client",
+      "hostmane": "client",
+      "essential": false
+    },
+
+    {
+      "name": "server",
+      "image": "thluiz10/multi-server",
+      "hostmane": "api",
+      "essential": false
+    },
+
+    {
+      "name": "worker",
+      "image": "thluiz10/multi-worker",
+      "hostmane": "worker",
+      "essential": false
+    },
+
+    {
+      "name": "nginx",
+      "image": "thluiz10/multi-nginx",
+      "hostmane": "nginx",
+      "essential": true,
+      "portMappings": [
+        {
+          "hostPort": 80,
+          "containerPort": 80
+        }
+      ],
+      
+      "links": ["client", "server"]
+    }
+  ]
+}
